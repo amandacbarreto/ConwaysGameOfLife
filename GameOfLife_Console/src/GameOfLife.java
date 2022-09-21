@@ -21,7 +21,7 @@ public class GameOfLife {
         int visualizationOption = 0;
         while (visualizationOption!=1 && visualizationOption!=2 ){
             System.out.println("Informe como deseja visualizar a matriz:\n" +
-                    "1 - Vizualicao em numeros (0 e 1).\n"+
+                    "1 - Espacos vazios e *.\n"+
                     "2 - Quadros coloridos.");
             visualizationOption = s.nextInt();
         }
@@ -53,7 +53,19 @@ public class GameOfLife {
     }
 
     private static void printBoard(int[][] board, int visualization) {
-        if (visualization == 2){
+        if (visualization == 1){
+            for (int i = 0; i< board.length;i++){
+                for (int j = 0; j < board[i].length; j++)
+                    if(board[i][j]==1){
+                        System.out.print("* ");
+                    } else {
+                        System.out.print("  ");
+                    }
+
+                System.out.println();
+            }
+        }
+        else if (visualization == 2){
             System.out.print(ANSI_WHITE_BACKGROUND);
             for (int i=0; i< board.length; i++){
                 for(int j=0; j<board[i].length; j++){
@@ -74,7 +86,7 @@ public class GameOfLife {
         } else {
             for (int i = 0; i< board.length;i++){
                 for (int j = 0; j < board[i].length; j++)
-                    System.out.print(board[i][j] + " ");
+                        System.out.print(board[i][j]+" ");
                 System.out.println();
             }
         }
@@ -95,7 +107,7 @@ public class GameOfLife {
         int[][] initialBoard = new int[rows][columns];
         clear();
         System.out.println("Altere a matriz abaixo para definir os valores iniciais");
-        printBoard(initialBoard, 1);
+        printBoard(initialBoard, 3);
         System.out.println("---------");
         Scanner s = new Scanner(System.in);
         for (int i=0; i<rows;i++){
