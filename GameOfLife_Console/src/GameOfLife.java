@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class GameOfLife {
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
     public static void main(String[] args) throws InterruptedException {
         clear();
@@ -83,7 +83,7 @@ public class GameOfLife {
         System.out.print("\033\143");
     }
 
-    public static int[][] randomBoard(int rows, int columns){
+    private static int[][] randomBoard(int rows, int columns){
         int[][] board = new int [rows][columns];
         for (int i = 0; i< board.length;i++)
             for (int j=0; j<board[i].length; j++)
@@ -91,7 +91,7 @@ public class GameOfLife {
         return board;
     }
 
-    public static  int [][] setBoard(int rows, int columns){
+    private static  int [][] setBoard(int rows, int columns){
         int[][] initialBoard = new int[rows][columns];
         clear();
         System.out.println("Altere a matriz abaixo para definir os valores iniciais");
