@@ -12,7 +12,7 @@
   javac GameOfLife.java
 ```
 
-### Executar class
+### Executar classe
 ```
   java -cp . GameOfLife
 ```
